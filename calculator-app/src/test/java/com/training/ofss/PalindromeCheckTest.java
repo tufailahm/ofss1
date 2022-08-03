@@ -1,6 +1,5 @@
 package com.training.ofss;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -23,7 +22,7 @@ class PalindromeCheckTest {
 	
 	@Test
 	@Order(3)
-	@DisplayName(value="Third test case for hello")
+	@DisplayName(value="Third t	est case for hello")
 	void test1() {
 		assertFalse(util1.checkPalindrome("hello"));
 	}

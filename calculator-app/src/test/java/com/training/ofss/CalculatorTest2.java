@@ -1,14 +1,23 @@
 package com.training.ofss;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.condition.DisabledOnJre;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.OS;
 class CalculatorTest2 {
 
 	Calculator calculator;
@@ -26,7 +35,7 @@ class CalculatorTest2 {
 	void setUp1() throws Exception {
 		System.out.println("BEFORE THE TEST1");
 		calculator = new Calculator();
-		expected = 20;
+		expected = 30;
 	}
 	@BeforeEach
 	void setUp2() throws Exception {
@@ -48,6 +57,7 @@ class CalculatorTest2 {
 		assertEquals(expected, actual);
 	}
 	@Test
+	@RepeatedTest(3)
 	void testAdd2() {
 		System.out.println("ACTUAL TEST - TEST ADD2");
 		actual = calculator.add(10, 10);
@@ -57,6 +67,7 @@ class CalculatorTest2 {
 	
 	@Test
 	@DisplayName(value = "testing convert to number if the input is \"20\"")
+	@Disabled
 	void testConvertToNumber1() {
 		actual = calculator.convertToNumber("20");
 		assertEquals(expected, actual);
@@ -64,13 +75,27 @@ class CalculatorTest2 {
 	// Testing exception
 	@Test
 	@DisplayName(value = "testing convert to number if the input is \"Twenty\"")
+	@DisabledOnJre(value = JRE.OTHER)
 	void testConvertToNumber2() {
-		assertThrows(NumberFormatException.class, () -> {
-			actual = calculator.convertToNumber("Twenty");
-			assertEquals(expected, actual);
-		});
+		/*
+		 * assertThrows(NumberFormatException.class, () -> { actual =
+		 * calculator.convertToNumber("Twenty"); assertEquals(expected, actual); });
+		 */
 		
 	}
+	@Test
+	@EnabledOnOs(OS.MAC)
+	void testOnMacOs() {
+	    assertTrue(true);
+	}
+
+	@Test
+	@DisabledOnOs(OS.WINDOWS)
+	void doNotTestOnWindows() {
+	    assertTrue(true);
+	}
+
+	
 }
 
 
