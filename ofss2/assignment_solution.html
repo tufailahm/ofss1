@@ -1,0 +1,76 @@
+Paste here
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function checkValue(){
+            var v1 = document.getElementById('num1')
+            if(v1.value<0)
+            {
+                alert("first number can't be negative")
+                v1.value="";
+                v1.focus()
+            }
+        }
+        function arithmeticfun(value){
+            var n1= document.getElementById('num1')
+            var n2= document.getElementById('num2')
+            var res= document.getElementById('result')
+ 
+            res.innerText="Result: "
+            if(value=="add")
+            {
+                res.innerText += parseInt(n1.value)+parseInt(n2.value)
+            }
+            else if(value=="sub")
+            {
+                res.innerText += parseInt(n1.value)-parseInt(n2.value)
+            }
+            else if(value=="mul")
+            {
+                res.innerText += parseInt(n1.value)*parseInt(n2.value)
+            }
+            else if(value=="div")
+            {
+                res.innerText += parseInt(n1.value)/parseInt(n2.value)
+                //console.log(res.innerText)
+            }
+        }
+ 
+    </script>
+   
+    <title>Drop Down Test</title>
+</head>
+<body>
+    <table>
+        <form action="">
+            <tr>
+                <td>Num1: <input type="text" name="num1" id="num1" onblur="checkValue()"></td>
+                <td>Num2: <input type="text" name="num2" id="num2"></td>
+            </tr>
+            <tr>
+                <td>Operation:
+                    <select name="" id="" onchange="arithmeticfun(value)">
+                        <option value="">--select--</option>
+                        <option value="add">Add</option>
+                        <option value="sub">Subtact</option>
+                        <option value="mul">Multiply</option>
+                        <option value="div">Divide</option>
+                    </select>
+                </td>  
+            </tr>
+            <tr>
+                <td><h3 id="result">Result: </h3></td>
+            </tr>
+           
+        </form>
+    </table>
+   
+   
+</body>
+</html>
+

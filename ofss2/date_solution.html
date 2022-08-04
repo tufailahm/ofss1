@@ -1,0 +1,51 @@
+<html>
+
+<body>
+    <style>
+        .demo {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+        }
+
+        body {
+            font-family: arial;
+            padding: 1em;
+        }
+    </style>
+    <script type="text/javascript" src="calculate.js">  //External Javascript
+    </script>
+    <script type="text/javascript">  //Internal Javascript
+    function changeCSS(){
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            const element = document.querySelector('.demo');
+            element.style.backgroundColor = 'red';
+        });
+    }
+    
+
+    </script>
+    <form>
+        Bill Amount : <input type="text" id="bill"><br>
+
+        <input type="button" value="Pay" onclick="finalBill()"><br>
+        Final Bill :<span id="fbill"></span>
+
+        <br />
+        <h1>Inline javascript</h1>
+        <!-- Inline javascript example-->
+        <input type="button" value="Subsidy" onclick="alert('You are subsidized consumer')"><br>
+    </form>
+
+    <h1>CSS - Javascript</h1>
+    <div class="demo">Oracle OFSS</div>
+    <button class="add" onclick="changeCSS()">Change CSS style</button>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>
+        OFSS
+    </title>
+    <script type="text/javascript">
+        function checkValue() {
+                var num1 = document.getElementById('num1');
+                if(num1.value <= 0){
+                    alert("Number1 cannot be negative or zero")
+                    num1.value="";
+                    num1.focus();
+                }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Num1 : <input type="text" id="num1" onblur="checkValue()">
+        Num2 : <input type="text" id="num2">
+        Operation : 
+                <select>
+                    <option>Add</option>
+                    <option>Sub</option>
+                    <option>Mul</option>
+                    <option>Divide</option>
+                </select>
+        <h1>Result : Empty</h1>
+    </form>
+</body>
+
+</html>

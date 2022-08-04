@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>
+        OFSS
+    </title>
+    <script type="text/javascript">
+        function validate() {
+
+            var uname = document.getElementById("username").value;
+            var pwd = document.getElementById("password").value;
+            var cnfmpwd = document.getElementById("confirmpassword").value;
+
+            //getting the span with ids
+            var errUserName = document.getElementById("errUserName");
+            var errPassword = document.getElementById("errPassword");
+            var errConfirmPassword = document.getElementById("errConfirmPassword");
+
+            errUserName.innerHTML = errPassword.innerHTML = errConfirmPassword.innerHTML="";
+
+            if (uname.length == 0) {
+               errUserName.innerHTML = "<font color=red>Please enter your username";
+            }
+            else if (pwd.length == 0 || pwd.length < 8) {
+                errPassword.innerHTML = "<font color=red>Please enter your password (min 8 char)";
+            }
+            else if (pwd != cnfmpwd) {
+                errConfirmPassword.innerHTML = "<font color=red>Password and Confirm password does not match";
+            }
+            else {
+                alert("Welcome Mr/Ms. " + uname)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>
+        Login /Reset Password Form
+    </h1>
+    <form>
+        <table cellspacing="10" cellpadding="10">
+            <tr>
+                <td> * User name : </td>
+                <td><input type="text" id="username" name="username"></td>
+                <td><span id="errUserName"></span></td>
+
+            </tr>
+            <tr>
+                <td>* Password :(min 8 char) </td>
+                <td><input type="password" id="password" name="password"></td>
+                <td><span id="errPassword"></span></td>
+            </tr>
+            <tr>
+                <td>* Confirm Password :(min 8 char) </td>
+                <td><input type="password" id="confirmpassword" name="confirmpassword"></td>
+                <td><span id="errConfirmPassword"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Login" onclick="validate()">
+                </td>
+                <td>
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+          
+        </table>
+    </form>
+</body>
+
+</html>

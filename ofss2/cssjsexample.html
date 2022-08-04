@@ -1,0 +1,39 @@
+<html>
+
+<body>
+    <style>
+        .demo {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            font-size: 3em;
+            background-color: blue;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+        }
+
+        body {
+            font-family: arial;
+            padding: 1em;
+        }
+    </style>
+
+    <script type="text/javascript">  //Internal Javascript
+        function changeCSS() {
+            const button = document.querySelector('button');
+            button.addEventListener('click', () => {
+                const element = document.querySelector('.demo');
+                element.style.backgroundColor = 'red';
+            });
+        }
+
+
+    </script>
+    <h1>CSS - Javascript</h1>
+    <div class="demo">Oracle OFSS</div>
+    <button class="add" onclick="changeCSS()">Change CSS style</button>
+</body>
+
+</html>
