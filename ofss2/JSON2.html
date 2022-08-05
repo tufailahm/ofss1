@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>
+        OFSS
+    </title>
+    <script type="text/javascript">
+        function change() {
+            /*replace the value of "city" to upper case:*/
+            var obj = { "name": "Tarun", "age": "39", "city": "mumbai" };
+            var text = JSON.stringify(obj, function (key, value) {
+                if (key == "city") {
+                    return value.toUpperCase();
+                } else {
+                    return value;
+                }
+            });
+
+            document.getElementById("demo").innerHTML = text + ", " + text.city;
+        }
+
+        function outerFunction() {
+            const outer = "I see the outer variable!"
+            //closures
+            function innerFunction() {
+                console.log(outer)
+            }
+
+            return innerFunction
+        }
+
+        outerFunction()()
+
+        
+    </script>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <br />
+    <input type="button" onclick="change()" value="Display JSON Value">
+</body>
+
+</html>

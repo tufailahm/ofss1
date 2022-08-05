@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        //store cookie
+        function storeCookie(value) {
+            console.log(value);
+            var today = new Date();
+            today.setDate(today.getDate() + 1);
+            document.cookie = "uname = " + escape(value) + " ; expires=" + today.toGMTString();
+            alert("Cookie Set Successfully")
+        }
+
+
+        //check cookie
+        function checkCookie() {
+            username = getCookie('uname');
+            console.log(username)
+            if (username != null && username != "") {
+                console.log(username)
+                document.forms[0].uname.value = username;
+            }
+        }
+
+        function getCookie(name) {
+            if (document.cookie.length > 0) {
+                ind = document.cookie.indexOf(name);
+                if (ind != -1) {
+                    ind = ind + name.length + 1;
+                    ind1 = document.cookie.indexOf(";", ind);
+                    if (ind1 == -1) ind1 = document.cookie.length;
+                    return unescape(document.cookie.substring(ind, ind1));
+                }
+            }
+            return ""
+        }
+
+
+
+    </script>
+</head>
+
+<body onload="checkCookie()">
+    <form>Name:<input type="text" name="uname">
+        <input type="button" value="set" onClick="storeCookie(document.forms[0].uname.value)">
+    </form>
+
+</body>
+
+</html>

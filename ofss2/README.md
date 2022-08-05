@@ -3,65 +3,6 @@ JavaScript and HTML5: Develop Web Applications
 JavaScript Fundamentals
 
 Writing JavaScript code to declare variables, objects, functions and arrays
-Writing JavaScript Arrays to store data
-Defining JavaScript Objects as a key-value store
-Accessing the properties of an object
-Practice: Writing JavaScript code to pass tests in Jasmine
-
-
-The JavaScript API
-
-Validating user input with JavaScript and Regular Expressions
-Handling multiple values with JavaScript Collections
-Manipulating Dates with the JavaScript Date API
-Practice: Creating a meal-divider application
-Practice: Calculating the total based on the age
-
-Web Application Data
-
-Converting Objects to JSON Strings
-Parsing JSON Strings into JavaScript Objects
-Storing Objects by using the JSON API, Cookies, and Local Storage
-Practice: Saving user input using JSON and Local Storage
-Practice: Restoring saved data when page loads
-
-Style Applications using CSS3 and JavaScript
-
-Applying CSS styles to HTML documents
-Using CSS3 features to add dynamic styles to elements with events
-Using Media Queries and media data to adapt to different screens
-Using JavaScript to add and remove styles from elements
-Practice: Writing CSS rules to style elements in the document
-
-Advanced JavaScript
-
-Defining Functions
-Creating Closures and explaining Variable Scope
-Writing JavaScript functions as modules
-Creating Prototypes
-Creating Drag-and-Drop interactions with JavaScript
-Creating JavaScript Timers and Delays to create animations in HTML
-Using the HTML5 Canvas Object to draw in pages
-Practices: Creating a Canvas, intervals, Drag and Drop, and implementing Mouse Gestures
-
-AJAX and WebSocket
-
-Using AJAX with JavaScript to request data from an Application Server
-Using AJAX to consume RESTful Web Services
-Using AJAX calls to create "Server Push" interactions
-Identifying alternatives to AJAX used in legacy code
-Understanding AJAX Security
-Using WebSocket to create Real-time Client/Server interactions
-Identifying the required Back-End technologies for REST and WebSocket with Java EE7
-Practices: Creating a Single-Page Application using RESTand a Tic-Tac-Toe Game Client with WebSocket
-
-Developing Applications with jQuery
-
-Adding jQuery and jQuery UI libraries to your projects
-Using Selectors and DOM manipulators to handle documents
-Handling Events with jQuery
-Animating elements and Applying effects in the document
-Handling AJAX server responses
 
 =================================================================================
 What is Javascript ?
@@ -265,7 +206,7 @@ Practice: Writing CSS rules to style elements in the document
   padding: 10px 20px;
   margin-bottom: 20px;
   font-size: 3em;
-  backgroundColor : 'blue'
+	
 }
 
 button {
@@ -291,6 +232,12 @@ button.addEventListener('click', () => {
 
 
 
+Day 2 Agenda
+-----------------
+
+Media Queries - CSS3/Javascript
+-------------------------------------
+RWD
 
 
 
@@ -305,107 +252,262 @@ button.addEventListener('click', () => {
 
 
 
-=============2nd
 
 
-<div class="demo" style="color: red;">Hello</div>
-<button class="add">Change CSS style</button>
 
 
-.demo {
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  font-size: 3em;
-}
 
-.element{
-    color: blue;
-}
 
-button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-}
 
+
+
+
+
+
+
+
+
+
+Dynamically add elements on a web page using javascript
+Javascript Objects
+ Regular Expressions
+Converting Objects to JSON Strings
+Cookies , Local Storages
+Creating Closures and explaining Variable Scope
+Prototypes
+Drag-and-Drop
+Aninations
+Ajax
+jQuery
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
 body {
-  font-family: arial;
-  padding: 1em;
-  font-weight: bold;
+    background-color:lightgreen;
 }
+@media only screen and (min-width: 600px) {
 
-
-const button = document.querySelector("button");
-button.addEventListener("click", changeMultipleCSS);
-
-function changeMultipleCSS(e) {
-  // Defining all our CSS styles
-  const myStyles = `
-    display: block;
-    width: 80%;
-    background-color: red;
-    border: 2px;
-    font-size: 5em;
-    color: white;
-    margin: 20px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    border: 2px solid black;
-  `;
-  const element = document.querySelector(".demo");
-
-  element.style.cssText = myStyles;
+   .username:before
+   {
+	content:"User Name :";
+   }
+    body	
+   {
+      background-color:lightblue;
+   }
 }
+@media only screen and (min-width: 780px) {
 
+   .username:before
+   {
+	content:"Please enter User Name :";
+   }
+    body	
+   {
+      background-color:pink;
+   }
+}
+@media only screen and (max-width: 500px) {
 
-
-=====================3rd
-
-style id="demo">
-  .element {
-    background: red;
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-  }
-
-  button {
-    padding: 10px 20px;
-    font-size: 1.2em;
-  }
-
-  body {
-    font-family: arial;
-    padding: 1em;
-  }
+   .username:before
+   {
+	content:":::";
+	
+   }
+   body	
+   {
+      background-color:lightblue;
+   }
+}
 </style>
-
-<div class="element">
-  Demo
+</head>
+<body>
+<div class="username">
+<input type="text">
 </div>
-<button>Modify Stylesheet</button>
+</body>
+</html>
+
+
+
+-------------------
+Dynamically adding controls
+
+
+createElement
+setAttribute
+
+
+
+Storage 
+====================
+
+localStorage.set and get [""]
+sessionStorage
+
+Cookies
+key - value	- store the data
 
 
 
 
-var button = document.querySelector('button');
-button.addEventListener('click', modifyStyleSheet);
 
-function modifyStyleSheet(){
-  // Getting the stylesheet
-  const stylesheet = document.styleSheets[0];
-  console.log(stylesheet);
-  let elementRules;
 
-  // looping through all its rules and getting your rule
-  for(let i = 0; i < stylesheet.cssRules.length; i++) {
-    if(stylesheet.cssRules[i].selectorText === '.element') {
-      elementRules = stylesheet.cssRules[i];
-    }
-  }
 
-  // modifying the rule in the stylesheet
-  elementRules.style.setProperty('background', 'blue');
+ Regular Expressions in javascript
+
+@
+.
+
+// Validates email address of course.
+function validEmail(e) {
+    var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+    return String(e).search (filter) != -1;
 }
+
+---------Another example :: 
+
+<input type='text' id='txtEmail'/>
+<input type='submit' name='submit' onclick='checkEmail();'/>
+
+<script>
+    function checkEmail() {
+        var email = document.getElementById('txtEmail');
+        var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!filter.test(email.value)) {
+            alert('Please provide a valid email address');
+            email.focus;
+            return false;
+        }
+    }
+</script>
+
+
+Ajax
+-------------------
+
+
+
+
+Asynchronous Javascript and XML
+-refresh part of a web page and not the whole page
+
+
+
+XMLHttpRequest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WHY ??
+JSON ( Javascript object notation )
+
+Javascript objects and JSON
+
+
+
+/*replace the value of "city" to upper case:*/
+var text = '{ "name":"Tarun", "age":"39", "city":"Mumbai"}';
+var obj = JSON.parse(text, function (key, value) {
+  if (key == "city") {
+    return value.toUpperCase();
+  } else {
+    return value;
+  }
+});
+
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.city;
+
+
+
+The JSON.stringify() method converts JavaScript objects into strings.
+
+When sending data to a web server the data has to be a string.
+
+
+/*replace the value of "city" to upper case:*/
+var obj = { "name":"Tarun", "age":"39", "city":"New York"};
+var text = JSON.stringify(obj, function (key, value) {
+  if (key == "city") {
+    return value.toUpperCase();
+  } else {
+    return value;
+  }
+});
+
+
+-------------------------
+Whenever you create a function within another function, you have created a closure. 
+The inner function is the closure. 
+This closure is usually returned so you can use the outer function’s variables at a later time.
+
+function outerFunction () 
+{
+    const outer = `I see the outer variable!`
+  
+    function innerFunction() {
+      console.log(outer)
+    }
+  
+    return innerFunction
+  }
+  
+  outerFunction()() // I see the outer variable!
+
+
+
+---
+Closures in js
+ hello()
+        {
+              let ename = "Tufail"
+                 function innerHello()
+              {
+                      console.log(ename)
+              }
+             return innerHello();
+        }
+
+
+** this will be available in clousers , 
+
+----------
+Jquery
+
+=================
+
+javascript library - show / hide
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

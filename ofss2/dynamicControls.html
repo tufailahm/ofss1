@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>
+        OFSS
+    </title>
+    <script type="text/javascript">
+        function addControls(){
+            var mainDiv = document.getElementById("myDiv1");
+
+            var newDiv = document.createElement("div");
+            newDiv.setAttribute('id','innerDiv');
+
+            var newTxtBox = document.createElement('input')
+            newTxtBox.type = 'text';
+            newTxtBox.setAttribute('id','uname')
+
+            newDiv.appendChild(newTxtBox);
+            
+            mainDiv.appendChild(newDiv);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="myDiv1">
+            <input type="button" value="Add a Text Box" onclick="addControls()">
+    </div>
+</body>
+
+</html>

@@ -4,12 +4,17 @@
     <title>
         OFSS
     </title>
+    <script src="jquery-3.6.0"></script>
     <script type="text/javascript">
-        for (i = 1; i <= 5; i++) {
-            document.write("<h1>Mohammad Tufail Ahmed")
-        }
-        var empname = prompt("Enter your employee name", "")
-        alert("Welcome :" + empname)
+        $.ajax({
+            url: "oracle.txt",
+            data: {
+                zipcode: 97201
+            },
+            success: function (result) {
+                $("#weather-temp").html("<strong>" + result + "</strong> degrees");
+            }
+        });
 
     </script>
 </head>

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>
+        OFSS
+    </title>
+    <script type="text/javascript">
+        var http = new XMLHttpRequest();
+        function changeText() {
+            alert("changeText called")
+            http.open("GET", "oracle.txt", true);
+            http.onreadystatechange = readData;
+            http.send(null);
+        }
+        function readData() {
+            alert("Ready state is :"+http.readyState);
+            if (http.readyState == 4) {
+                document.getElementById('myDiv').innerHTML = http.responseText;
+            } 
+        }
+    </script>
+</head>
+
+<body>
+    Some text : <input type="text">
+    <br />
+    <br />
+    <br />
+
+    <button onclick="changeText()">Show Message</button><br /><br />
+
+    <div id="myDiv">Latest Message Here</div>
+</body>
+
+</html>
